@@ -1,6 +1,7 @@
 "use client";
 import { useBoardStore } from "@/store/AppStore";
-import React, { useEffect } from "react";
+import type { GetStaticProps } from 'next';
+import { useEffect } from "react";
 import {
   DragDropContext,
   DropResult,
@@ -8,7 +9,6 @@ import {
   resetServerContext,
 } from "react-beautiful-dnd";
 import Column from "./Column";
-import { GetServerSideProps } from "next";
 
 const MainSection = () => {
   const [getboards, updateTodo] = useBoardStore((state) => [
@@ -18,7 +18,7 @@ const MainSection = () => {
   const board = useBoardStore((state) => state.board);
   console.log("ahmer", board);
   const handleDragEnd = (result: DropResult) => {
-    const { destination, source, draggableId, type } = result;
+    const { destination, source, type } = result;
     if (!destination) return;
     if (type === "column") {
       const newColumnOrder = Array.from(board.columns.entries());
@@ -94,7 +94,7 @@ const MainSection = () => {
     </DragDropContext>
   );
 };
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getStaticProps: GetStaticProps = async () => {
   resetServerContext(); // <-- CALL RESET SERVER CONTEXT, SERVER SIDE
 
   return { props: { data: [] } };

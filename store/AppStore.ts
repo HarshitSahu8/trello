@@ -93,7 +93,6 @@ export const useBoardStore = create<BoardState>((set, get) => ({
         status: coloumId,
         ...(file && { image: file }),
       };
-      const column = newColumns.get(coloumId);
 
       if (!coloumId) {
         newColumns.set(coloumId, {
