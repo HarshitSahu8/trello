@@ -1,11 +1,10 @@
 "use client";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-import { BiUserCircle } from "react-icons/bi";
-import Avatar from "react-avatar";
+// import fetchSuggestion from "@/lib/fetchSuggestion";
 import { useBoardStore } from "@/store/AppStore";
-import fetchSuggestion from "@/lib/fetchSuggestion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import Avatar from "react-avatar";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const Header = () => {
   const [board, searchString, setSearchString] = useBoardStore((state) => [
@@ -13,15 +12,15 @@ const Header = () => {
     state.searchString,
     state.setSearchString,
   ]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [suggestion, setSuggestion] = useState("");
   useEffect(() => {
     if (board.columns.size === 0) return;
-    setLoading(true);
+    // setLoading(true);
     const fetchSuggestionFunc = async () => {
-      const suggestion = await fetchSuggestion(board);
-      setSuggestion(suggestion);
-      setLoading(false);
+      // const suggestion = await fetchSuggestion(board);
+      // setSuggestion(suggestion);
+      // setLoading(false);
     };
     fetchSuggestionFunc();
   }, [board]);
@@ -58,7 +57,7 @@ const Header = () => {
         </div>
       </div>
       <div className="flex items-center justify-center px-5 md:py-5">
-        <p className="flex items-center p-5 text-sm font-light pr-5 shadow-xl rounded-lg cursor-pointer bg-gray-100 text-blue-800 gap-2">
+        {/* <p className="flex items-center p-5 text-sm font-light pr-5 shadow-xl rounded-lg cursor-pointer bg-gray-100 text-blue-800 gap-2">
           <BiUserCircle
             size={30}
             className={`inline-block h-10 w-10 text-[#005501] mr-1 ${
@@ -68,7 +67,7 @@ const Header = () => {
           {suggestion && !loading
             ? suggestion
             : "Gpt is loading your suggestion.."}
-        </p>
+        </p> */}
       </div>
     </header>
   );
