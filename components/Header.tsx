@@ -50,7 +50,7 @@ const Header = () => {
           </form>
           <Avatar
             size="50"
-            name="Ahmer Khan"
+            name="Harshit Sahu"
             className=" rounded-[50%]"
             color="blue"
           />

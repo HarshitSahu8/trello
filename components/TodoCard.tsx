@@ -34,14 +34,12 @@ const TodoCard = ({
       const fetchImage = async () => {
         const url = await getUrl(todo.image!);
         if (url) {
-          console.log("url", url);
           setImageUrl(url.toString());
         }
       };
       fetchImage();
     }
   }, []);
-  console.log("ahmerrrr", imageUrl);
   return (
     <div
       className="bg-white p-2 rounded-md shadow-sm my-2 flex flex-col justify-between items-center"

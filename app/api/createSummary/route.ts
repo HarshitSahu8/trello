@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const { todos } = await request.json();
-  console.log("hello", todos);
   const response = await openai.createChatCompletion({
     model: "gpt-3-turbo",
     temperature: 0.8,
@@ -21,6 +20,5 @@ export async function POST(request: Request) {
     ],
   });
   const { data } = response;
-  console.log("data", data);
   return NextResponse.json(data.choices[0].message);
 }

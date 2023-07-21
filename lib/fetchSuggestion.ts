@@ -2,7 +2,6 @@
 
 // const fetchSuggestion = async (board: Board) => {
 //   const todos = formatTodos(board);
-//   console.log(todos, "dsdff");
 //   const response = await fetch("/api/createSummary", {
 //     method: "POST",
 //     headers: {
@@ -13,7 +12,6 @@
 
 //   const gptdata = await response.json();
 //   const { content } = gptdata;
-//   console.log(content, "content");
 
 //   return content;
 // };

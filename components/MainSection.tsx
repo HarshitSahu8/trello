@@ -16,7 +16,6 @@ const MainSection = () => {
     state.updateTodo,
   ]);
   const board = useBoardStore((state) => state.board);
-  console.log("ahmer", board);
   const handleDragEnd = (result: DropResult) => {
     const { destination, source, type } = result;
     if (!destination) return;

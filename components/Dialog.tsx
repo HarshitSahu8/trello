@@ -29,7 +29,6 @@ export default function MyDialog() {
     setImage(null);
     closeModal();
   };
-  console.log("image", image);
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
